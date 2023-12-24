@@ -6,7 +6,7 @@
 /*   By: kpuwar <kpuwar@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/23 23:03:39 by kpuwar            #+#    #+#             */
-/*   Updated: 2023/12/24 05:22:48 by kpuwar           ###   ########.fr       */
+/*   Updated: 2023/12/24 14:24:48 by kpuwar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,8 @@ using std::exception;
 class Bureaucrat
 {
 	private:
-		const string	name;
-		short	grade;
+		const string name;
+		short grade;
 		Bureaucrat();
 		void setGrade(short Grade);
 

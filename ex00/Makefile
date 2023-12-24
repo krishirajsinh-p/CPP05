@@ -6,7 +6,7 @@
 #    By: kpuwar <kpuwar@student.42heilbronn.de>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/24 04:59:29 by kpuwar            #+#    #+#              #
-#    Updated: 2023/12/24 05:46:47 by kpuwar           ###   ########.fr        #
+#    Updated: 2023/12/24 14:21:24 by kpuwar           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,4 +31,6 @@ clean:
 
 fclean: clean
 	$(RM) $(NAME)
+
+re: fclean all
 	

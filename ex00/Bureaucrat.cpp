@@ -6,7 +6,7 @@
 /*   By: kpuwar <kpuwar@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/23 23:32:07 by kpuwar            #+#    #+#             */
-/*   Updated: 2023/12/24 05:46:34 by kpuwar           ###   ########.fr       */
+/*   Updated: 2023/12/24 14:23:09 by kpuwar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,8 @@ Bureaucrat::Bureaucrat(string Name, short Grade) : name(Name), grade(0) {
 }
 
 Bureaucrat& Bureaucrat::operator=(const Bureaucrat& rhs) {
-	*this = Bureaucrat(rhs);
+	if (this != &rhs)
+		*this = Bureaucrat(rhs);
 	return *this;
 }
 
