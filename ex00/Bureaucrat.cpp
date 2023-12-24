@@ -6,7 +6,7 @@
 /*   By: kpuwar <kpuwar@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/23 23:32:07 by kpuwar            #+#    #+#             */
-/*   Updated: 2023/12/24 14:23:09 by kpuwar           ###   ########.fr       */
+/*   Updated: 2023/12/24 15:39:29 by kpuwar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,11 +24,7 @@ void Bureaucrat::setGrade(short Grade) {
 }
 
 Bureaucrat::Bureaucrat(string Name, short Grade) : name(Name), grade(0) {
-	try {
-		setGrade(Grade);
-	} catch(const std::exception& e) {
-		std::cerr << e.what() << endl;
-	}
+	setGrade(Grade);
 }
 
 Bureaucrat& Bureaucrat::operator=(const Bureaucrat& rhs) {
@@ -38,11 +34,7 @@ Bureaucrat& Bureaucrat::operator=(const Bureaucrat& rhs) {
 }
 
 Bureaucrat::Bureaucrat(const Bureaucrat& src) : name(src.getName()), grade(0) {
-	try {
-		setGrade(src.getGrade());
-	} catch(const std::exception& e) {
-		std::cerr << e.what() << endl;
-	}
+	setGrade(src.getGrade());
 }
 
 Bureaucrat::~Bureaucrat() {
@@ -57,19 +49,11 @@ short Bureaucrat::getGrade() const {
 }
 
 void Bureaucrat::incrementGrade() {
-	try {
-		setGrade(grade - 1);
-	} catch(const std::exception& e) {
-		std::cerr << e.what() << endl;
-	}
+	setGrade(grade - 1);
 }
 
 void Bureaucrat::decrementGrade() {
-	try {
-		setGrade(grade + 1);
-	} catch(const std::exception& e) {
-		std::cerr << e.what() << endl;
-	}
+	setGrade(grade + 1);
 }
 
 const char* Bureaucrat::GradeTooHighException::what() const throw() {
