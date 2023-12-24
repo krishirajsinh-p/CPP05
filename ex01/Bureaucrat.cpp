@@ -6,7 +6,7 @@
 /*   By: kpuwar <kpuwar@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/23 23:32:07 by kpuwar            #+#    #+#             */
-/*   Updated: 2023/12/24 05:46:34 by kpuwar           ###   ########.fr       */
+/*   Updated: 2023/12/24 18:15:56 by kpuwar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,24 +24,17 @@ void Bureaucrat::setGrade(short Grade) {
 }
 
 Bureaucrat::Bureaucrat(string Name, short Grade) : name(Name), grade(0) {
-	try {
-		setGrade(Grade);
-	} catch(const std::exception& e) {
-		std::cerr << e.what() << endl;
-	}
+	setGrade(Grade);
 }
 
 Bureaucrat& Bureaucrat::operator=(const Bureaucrat& rhs) {
-	*this = Bureaucrat(rhs);
+	if (this != &rhs)
+		*this = Bureaucrat(rhs);
 	return *this;
 }
 
 Bureaucrat::Bureaucrat(const Bureaucrat& src) : name(src.getName()), grade(0) {
-	try {
-		setGrade(src.getGrade());
-	} catch(const std::exception& e) {
-		std::cerr << e.what() << endl;
-	}
+	setGrade(src.getGrade());
 }
 
 Bureaucrat::~Bureaucrat() {
@@ -56,19 +49,11 @@ short Bureaucrat::getGrade() const {
 }
 
 void Bureaucrat::incrementGrade() {
-	try {
-		setGrade(grade - 1);
-	} catch(const std::exception& e) {
-		std::cerr << e.what() << endl;
-	}
+	setGrade(grade - 1);
 }
 
 void Bureaucrat::decrementGrade() {
-	try {
-		setGrade(grade + 1);
-	} catch(const std::exception& e) {
-		std::cerr << e.what() << endl;
-	}
+	setGrade(grade + 1);
 }
 
 const char* Bureaucrat::GradeTooHighException::what() const throw() {
@@ -77,6 +62,15 @@ const char* Bureaucrat::GradeTooHighException::what() const throw() {
 
 const char* Bureaucrat::GradeTooLowException::what() const throw() {
 	return "'150' is the lowest grade possible.";
+}
+
+void Bureaucrat::signForm(Form &form) {
+	try {
+		form.beSigned(*this);
+		cout << name << " signed " << form.getName() << endl;
+	} catch(const std::exception& e) {
+		std::cerr << name << " couldn't sign " << form.getName() << " because " << e.what() << endl;
+	}
 }
 
 ostream& operator<<(ostream& o, const Bureaucrat& rhs) {
