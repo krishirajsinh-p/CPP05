@@ -6,7 +6,7 @@
 /*   By: kpuwar <kpuwar@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/24 18:41:49 by kpuwar            #+#    #+#             */
-/*   Updated: 2023/12/25 22:01:09 by kpuwar           ###   ########.fr       */
+/*   Updated: 2023/12/26 00:56:26 by kpuwar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ class AForm
 		AForm(string Name, short SignGrade, short ExecGrade, string Target);
 		AForm(const AForm& src);
 		AForm& operator=(const AForm& rhs);
-		~AForm();
+		virtual ~AForm();
 		void checkRange(short Grade);
 
 		const string getName() const;
