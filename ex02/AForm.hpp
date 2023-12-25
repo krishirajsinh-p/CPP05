@@ -6,7 +6,7 @@
 /*   By: kpuwar <kpuwar@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/24 18:41:49 by kpuwar            #+#    #+#             */
-/*   Updated: 2023/12/25 01:31:55 by kpuwar           ###   ########.fr       */
+/*   Updated: 2023/12/25 22:01:09 by kpuwar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,10 +31,11 @@ class AForm
 		bool isSigned;
 		const short signGrade;
 		const short execGrade;
+		const string target;
 		AForm();
 
 	public:
-		AForm(string Name, short SignGrade, short ExecGrade);
+		AForm(string Name, short SignGrade, short ExecGrade, string Target);
 		AForm(const AForm& src);
 		AForm& operator=(const AForm& rhs);
 		~AForm();
@@ -47,12 +48,19 @@ class AForm
 
 		void beSigned(Bureaucrat& bureaucrat);
 
+		const string getTarget() const;
+
 		class GradeTooHighException : public exception {
 			public:
 				const char* what() const throw();
 		};
 
 		class GradeTooLowException : public exception {
+			public:
+				const char* what() const throw();
+		};
+
+		class FormNotSignedException : public exception {
 			public:
 				const char* what() const throw();
 		};

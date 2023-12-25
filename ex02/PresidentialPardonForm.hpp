@@ -6,7 +6,7 @@
 /*   By: kpuwar <kpuwar@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/25 01:34:58 by kpuwar            #+#    #+#             */
-/*   Updated: 2023/12/25 01:35:57 by kpuwar           ###   ########.fr       */
+/*   Updated: 2023/12/25 21:34:56 by kpuwar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@
 class PresidentialPardonForm : public AForm
 {
 	private:
-		const string target;
 		PresidentialPardonForm();
 
 	public:
@@ -27,7 +26,6 @@ class PresidentialPardonForm : public AForm
 		PresidentialPardonForm& operator=(const PresidentialPardonForm& rhs);
 		~PresidentialPardonForm();
 
-		const string getTarget() const;
 		void execute(Bureaucrat const & executor) const;
 };
 

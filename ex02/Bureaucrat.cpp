@@ -6,7 +6,7 @@
 /*   By: kpuwar <kpuwar@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/23 23:32:07 by kpuwar            #+#    #+#             */
-/*   Updated: 2023/12/24 18:15:56 by kpuwar           ###   ########.fr       */
+/*   Updated: 2023/12/25 21:27:25 by kpuwar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,12 +64,21 @@ const char* Bureaucrat::GradeTooLowException::what() const throw() {
 	return "'150' is the lowest grade possible.";
 }
 
-void Bureaucrat::signForm(Form &form) {
+void Bureaucrat::signForm(AForm &form) {
 	try {
 		form.beSigned(*this);
 		cout << name << " signed " << form.getName() << endl;
 	} catch(const std::exception& e) {
 		std::cerr << name << " couldn't sign " << form.getName() << " because " << e.what() << endl;
+	}
+}
+
+void Bureaucrat::executeForm(const AForm& form) {
+	try {
+		form.execute(*this);
+		cout << name << " executed " << form.getName() << endl;
+	} catch(const std::exception& e) {
+		std::cerr << name << " couldn't execute " << form.getName() << " because " << e.what() << endl;
 	}
 }
 

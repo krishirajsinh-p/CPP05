@@ -6,7 +6,7 @@
 /*   By: kpuwar <kpuwar@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/24 18:44:38 by kpuwar            #+#    #+#             */
-/*   Updated: 2023/12/24 18:45:04 by kpuwar           ###   ########.fr       */
+/*   Updated: 2023/12/25 22:01:47 by kpuwar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,19 +21,19 @@ void AForm::checkRange(short Grade) {
 	}
 }
 
-AForm::AForm(string Name, short SignGrade, short ExecGrade) : name(Name), isSigned(false), signGrade(SignGrade), execGrade(ExecGrade) {
+AForm::AForm(string Name, short SignGrade, short ExecGrade, string Target) : name(Name), isSigned(false), signGrade(SignGrade), execGrade(ExecGrade), target(Target) {
 	checkRange(signGrade);
 	checkRange(execGrade);
 }
 
-AForm::AForm(const AForm& src) : name(src.getName()), isSigned(src.getIfSigned()), signGrade(src.getSignGrade()), execGrade(src.getExecGrade()) {
+AForm::AForm(const AForm& src) : name(src.getName()), isSigned(src.getIfSigned()), signGrade(src.getSignGrade()), execGrade(src.getExecGrade()), target(src.getTarget()) {
 	checkRange(signGrade);
 	checkRange(execGrade);
 }
 
 AForm& AForm::operator=(const AForm& rhs) {
 	if (this != &rhs)
-		*this = AForm(rhs);
+		isSigned = rhs.getIfSigned();
 	return *this;
 }
 
@@ -65,12 +65,20 @@ void AForm::beSigned(Bureaucrat& bureaucrat) {
 	}
 }
 
+const string AForm::getTarget() const {
+	return target;
+}
+
 const char* AForm::GradeTooHighException::what() const throw() {
 	return "grade is higher than expected.";
 }
 
 const char* AForm::GradeTooLowException::what() const throw() {
 	return "grade is lower than expected.";
+}
+
+const char* AForm::FormNotSignedException::what() const throw() {
+	return "form is not signed.";
 }
 
 ostream& operator<<(ostream& o, const AForm& rhs) {

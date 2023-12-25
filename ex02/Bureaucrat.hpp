@@ -6,14 +6,14 @@
 /*   By: kpuwar <kpuwar@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/23 23:03:39 by kpuwar            #+#    #+#             */
-/*   Updated: 2023/12/24 16:08:26 by kpuwar           ###   ########.fr       */
+/*   Updated: 2023/12/25 21:19:30 by kpuwar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef BUREAUCRAT_HPP
 #define BUREAUCRAT_HPP
 
-#include "Form.hpp"
+#include "AForm.hpp"
 #include <iostream>
 
 using std::string;
@@ -22,7 +22,7 @@ using std::endl;
 using std::ostream;
 using std::exception;
 
-class Form;
+class AForm;
 
 class Bureaucrat
 {
@@ -53,7 +53,8 @@ class Bureaucrat
 				const char* what() const throw();
 		};
 
-		void signForm(Form &form);
+		void signForm(AForm& form);
+		void executeForm(const AForm& form);
 };
 
 ostream& operator<<(ostream& o, const Bureaucrat& rhs);
