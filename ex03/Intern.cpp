@@ -6,7 +6,7 @@
 /*   By: kpuwar <kpuwar@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/25 22:21:18 by kpuwar            #+#    #+#             */
-/*   Updated: 2023/12/26 00:53:50 by kpuwar           ###   ########.fr       */
+/*   Updated: 2023/12/26 00:59:34 by kpuwar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,9 +51,7 @@ AForm* Intern::makeForm(string name, string target) {
 		}
 	}
 
-	if (returnForm == nullptr) {
-		cout << "Intern cannot create " << name << " form" << endl;
-		return nullptr;	
-	} else 
-		return returnForm;
+	if (returnForm == nullptr)
+		cout << "Intern cannot create " << name << " form." << endl;
+	return returnForm;
 }
