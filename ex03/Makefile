@@ -6,17 +6,18 @@
 #    By: kpuwar <kpuwar@student.42heilbronn.de>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/24 04:59:29 by kpuwar            #+#    #+#              #
-#    Updated: 2023/12/24 16:06:36 by kpuwar           ###   ########.fr        #
+#    Updated: 2023/12/26 00:56:03 by kpuwar           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME		= 
+NAME		=  Intern
 
 CC			= c++
 CFLAGS		= -Wall -Wextra -Werror -std=c++98
 
-INCLUDES	= Bureaucrat.hpp
-SRCS		= main.cpp Bureaucrat.cpp
+CLASSES		= Bureaucrat AForm ShrubberyCreationForm RobotomyRequestForm PresidentialPardonForm Intern
+INCLUDES	= $(addsuffix .hpp, $(CLASSES))
+SRCS		= main.cpp $(addsuffix .cpp, $(CLASSES))
 OBJS		= ${SRCS:.cpp=.o}
 
 RM			= rm -rf

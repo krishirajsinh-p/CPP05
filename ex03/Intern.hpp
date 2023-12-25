@@ -1,21 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Intern.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kpuwar <kpuwar@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/24 18:31:21 by kpuwar            #+#    #+#             */
-/*   Updated: 2023/12/26 00:52:52 by kpuwar           ###   ########.fr       */
+/*   Created: 2023/12/25 22:21:15 by kpuwar            #+#    #+#             */
+/*   Updated: 2023/12/26 00:53:30 by kpuwar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Intern.hpp"
+#ifndef INTERN_HPP
+#define INTERN_HPP
 
-int main(void)
+#include "AForm.hpp"
+#include "ShrubberyCreationForm.hpp"
+#include "RobotomyRequestForm.hpp"
+#include "PresidentialPardonForm.hpp"
+
+class Intern
 {
-	Intern someRandomIntern;
-	AForm* rrf;
-	rrf = someRandomIntern.makeForm("robotomy request", "Bender");
-	return 0;
-}
+	public:
+		Intern();
+		Intern(const Intern& src);
+		Intern& operator=(const Intern& rhs);
+		~Intern();
+
+		AForm* makeForm(string Name, string type);
+};
+
+#endif
