@@ -6,7 +6,7 @@
 /*   By: kpuwar <kpuwar@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/25 22:21:18 by kpuwar            #+#    #+#             */
-/*   Updated: 2023/12/26 00:59:34 by kpuwar           ###   ########.fr       */
+/*   Updated: 2023/12/27 17:12:23 by kpuwar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,9 +37,9 @@ AForm* Intern::makeForm(string name, string target) {
 	};
 
 	AForm* forms[] = {
+		new ShrubberyCreationForm(target),
 		new RobotomyRequestForm(target),
-		new PresidentialPardonForm(target),
-		new ShrubberyCreationForm(target)
+		new PresidentialPardonForm(target)
 	};
 
 	for (int i = 0; i < 3; i++) {
